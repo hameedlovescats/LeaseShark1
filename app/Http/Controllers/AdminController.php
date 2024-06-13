@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return view('admin.propertyoption');
+    }
     public function showUsers()
     {
         $users = User::where('type', 'user')->get();
@@ -33,8 +37,6 @@ class AdminController extends Controller
 
     public function deleteUser($id)
     {
-
-        
         $user = User::find($id);
         $user->delete();
         return redirect()->route('admin.user');
